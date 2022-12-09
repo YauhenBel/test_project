@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: docker-micronaut
+    restart: always
+    ports:
+      - '8080:8080'
+    links:
+      - mongodb
+    image: namanarora/java-mongo-crud_app
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - '27017:27017'
