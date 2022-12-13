@@ -13,14 +13,13 @@ repositories {
     mavenCentral()
 }
 
-var kotlinVersion="1.6.21"
+var kotlinVersion = "1.6.21"
 
 
 dependencies {
     kapt(platform("io.micronaut:micronaut-bom:3.7.4"))
     kapt("io.micronaut:micronaut-inject-java")
     kapt("io.micronaut:micronaut-validation")
-    kapt("io.micronaut.configuration:micronaut-openapi")
     kapt("io.micronaut:micronaut-http-validation")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
@@ -30,7 +29,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
+    implementation("io.swagger.core.v3:swagger-annotations")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
 
@@ -38,17 +37,17 @@ dependencies {
 
 
 application {
-    mainClass.set("com.example.ApplicationKt")
+    mainClass.set("com.example.Application")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("17")
+    sourceCompatibility = JavaVersion.toVersion("11")
 }
 
 
 tasks {
     compileKotlin {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_17.toString()
+            jvmTarget = JavaVersion.VERSION_11.toString()
         }
     }
 }
@@ -56,18 +55,18 @@ tasks {
 tasks {
     compileTestKotlin {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_17.toString()
+            jvmTarget = JavaVersion.VERSION_11.toString()
         }
     }
 }
 
 micronaut {
-    version("3.7.4")
+    version.set("3.7.4")
     runtime("netty")
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("com.example.*")
+        annotations.add("com.example.*")
     }
 }
 
