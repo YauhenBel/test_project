@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -a -q)
+
+rm -rf build
+rm deployment/docker/bin/test_project.tar
+rm deployment/docker/resources/application.yml
+rm deployment/docker/resources/logback.xml
+
+./gradlew clean

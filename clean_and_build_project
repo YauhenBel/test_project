@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+sh clean_project
+sh build_project

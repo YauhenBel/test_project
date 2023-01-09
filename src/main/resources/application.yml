@@ -1,9 +1,11 @@
+mongodb:
+  dbName: "test_db"
+  host: "host.docker.internal"
 micronaut:
   application:
     name: test_project
     server:
       port: 8080
-
   server:
     url: "http://localhost:8080"
     port: 8080
@@ -21,7 +23,13 @@ micronaut:
         paths: "classpath:META-INF/swagger/views/swagger-ui"
         mapping: "/swagger-ui/**"
   mongodb:
-    uri: "mongodb://mongodb:27017"
+    uri: "mongodb://localhost:27017"
+  security:
+    authentication: session
+    redirect:
+      login-success: /
+      login-failure: /login/authFailed
+
 endpoints:
   all:
     sensitive: false

@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-./gradlew clean
 ./gradlew build
 
 cp build/distributions/test_project-0.1.tar deployment/docker/bin/test_project.tar
@@ -10,5 +9,4 @@ cp build/resources/main/logback.xml deployment/docker/resources/logback.xml
 cd deployment/docker || exit
 
 docker build -t 'test_project' .
-
 docker run -d -p 8080:8080 --name 'test' 'test_project'
