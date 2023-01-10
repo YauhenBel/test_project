@@ -24,6 +24,11 @@ micronaut:
         mapping: "/swagger-ui/**"
   mongodb:
     uri: "mongodb://localhost:27017"
+  security:
+    authentication: session
+    redirect:
+      login-success: /
+      login-failure: /login/authFailed
 
 endpoints:
   all:

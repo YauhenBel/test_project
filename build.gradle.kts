@@ -22,6 +22,7 @@ dependencies {
     kapt("io.micronaut:micronaut-validation")
     kapt("io.micronaut:micronaut-http-validation")
     kapt("io.micronaut.serde:micronaut-serde-processor")
+    kapt("io.micronaut.security:micronaut-security-annotations")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
     implementation("jakarta.annotation:jakarta.annotation-api")
@@ -36,6 +37,7 @@ dependencies {
     implementation("io.projectreactor:reactor-core:3.5.1")
     implementation("io.micronaut.reactor:micronaut-reactor-http-client")
     implementation("io.micronaut.serde:micronaut-serde-bson")
+    implementation("io.micronaut.security:micronaut-security-session")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
 
